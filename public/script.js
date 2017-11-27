@@ -6,9 +6,9 @@ app.controller('myCtrl', function($scope,$http) {
             $scope.Word  = "";
             $scope.Count = "";
 
-           	let requestBody = {
+            let requestBody = {
                 Number : $scope.number
-    	    };
+    	      };
     $http.post("/test",requestBody)
     .then(function(response) {
         $scope.tableData = response.data;
