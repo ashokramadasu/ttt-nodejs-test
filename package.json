@@ -1,0 +1,30 @@
+{
+  "name": "ttt_nodejs_test_application",
+  "version": "1.0.0",
+  "description": "Used for getting top N most frequent words from remote file",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "asyncawait": "^1.0.6",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashokramadasu/ttt_nodejs_test.git"
+  },
+  "author": "Ashok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashokramadasu/ttt_nodejs_test/issues"
+  },
+  "homepage": "https://github.com/ashokramadasu/ttt_nodejs_test#readme"
+}
