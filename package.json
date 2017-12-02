@@ -17,9 +17,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-   "scripts": {
-    "start": "node app.js",
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ashokramadasu/ttt_nodejs_test.git"
