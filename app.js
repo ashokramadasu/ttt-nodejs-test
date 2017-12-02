@@ -20,6 +20,9 @@ const fileUrl = 'http://terriblytinytales.com/test.txt'
 
 //Routes used for UI
 app.post('/test',test);
+app.get('/',function(req,res){
+   res.render('./public/index.html')
+});
 
 
 //main logic written here
