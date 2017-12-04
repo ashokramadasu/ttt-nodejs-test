@@ -11,20 +11,23 @@ var  express           = require('express')
 ,    _                 = require('underscore')
 
 //Express configuration settings
+app.set( 'port', ( process.env.PORT || 3000 ));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 app.use(express.static('./public'));
-app.set( 'port', ( process.env.PORT || 3000 ));
+app.set("view options", {layout: false});
+app.engine('html', require('ejs').renderFile);
+
 
 // input text file Url given in Assignment
 const fileUrl = 'http://terriblytinytales.com/test.txt'
 
 //Routes used for UI
 app.post('/test',test);
-// app.get('/',function(req,res){
-//    res.render(__dirname+ './public/index.html')
-// });
+app.get('/',function(req,res){
+   res.render(__dirname+ './public/index.html')
+});
 
 //main logic written here
 let makeRequest = async (function (N) {
@@ -38,7 +41,7 @@ let makeRequest = async (function (N) {
 // request handler function for test end point
 function test (req, res) {
   let N = req.body.Number; 
-    console.log(N)
+   
    makeRequest(N)
        .then(function(result){
             res.json(result)
@@ -94,9 +97,10 @@ function sortByCount (wordCount, N) {
 
   if(N  > len ){
      return ("The result array contains " +len+ " records . Please enter a Number between 1 to " +len)
-  }else {
-  return _.first(finalWordsArray, N);
   }
+  
+  return _.first(finalWordsArray, N);
+  
 }
 
 
