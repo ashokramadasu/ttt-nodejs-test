@@ -12,15 +12,18 @@
 
 
 ## Installation
-```bash
+bash
 $ git clone https://github.com/ashokramadasu/ttt-nodejs-test.git && cd ./ttt-nodejs-test/
 $ npm install
 
-### Running
+### Running Application
 
-```bash
+bash
 npm start
 
+### Testing  Application
+bash
+npm test
 
 ## Implementation Instructions
 I have used following functions 
