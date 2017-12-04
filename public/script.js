@@ -2,9 +2,9 @@ var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope,$http) {
 
     $scope.onSubmit = function(){
-            $scope.Index = "";
-            $scope.Word  = "";
-            $scope.Count = "";
+//             $scope.Index = "";
+//             $scope.Word  = "";
+//             $scope.Count = "";
            let  num = $scope.number;
             if(num < 0){
                     alert("Please enter + ve Number");
