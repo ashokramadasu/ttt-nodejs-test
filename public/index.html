@@ -6,10 +6,11 @@
 
 <div ng-app="myApp" ng-controller="myCtrl">
   <h1> Welcome to Terribly Tiny Tales Website</h1>
-  <p>number of frequent words from file : <input type="text" ng-model="number"></p>
-  <span ng-bind="error" style="color:red;"></span>
+  <p>number of frequent words from file : <input type="number" ng-model="number"></p>
   <input type="submit" name="submit" style="margin-right: 50px;" ng-click="onSubmit();">
-  <table  width="70%" style="padding-top: 50px;"> 
+
+  <h1 ng-bind ="error" style="color: blue;"></h1>
+  <table  width="70%" style="padding-top: 10px;"> 
   <th ng-bind="tableName" colspan="5"></th>
 		<tr>
 			<th ng-bind="Index"></th>
@@ -17,7 +18,7 @@
 			<th ng-bind="Count"></th>
 		</tr>
 		<tr ng-repeat="values in tableData">
-		        <td ng-bind="$index+1" style="background-color: #fecab2;text-align: center; width: 10%;"></td>
+		    <td ng-bind="$index+1" style="background-color: #fecab2;text-align: center; width: 10%;"></td>
 			<td ng-bind="values.word" style="background-color: #FFA3C9;text-align: center; width: 30%;"></td>
 			<td ng-bind="values.count" style="background-color: #D3DEF1; text-align: center;width: 30%;"></td>			
 		</tr>
