@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 app.use(express.static('./public'));
+app.set( 'port', ( process.env.PORT || 3000 ));
 
 // input text file Url given in Assignment
 const fileUrl = 'http://terriblytinytales.com/test.txt'
@@ -98,7 +99,7 @@ function sortByCount (wordCount, N) {
 
 
 //Express Server running at port 3000;
-app.listen(process.env.PORT ,function(){
+app.listen(app.get( 'port' ) ,function(){
   console.log("server running at 3000");
 });
 
