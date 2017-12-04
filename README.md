@@ -12,25 +12,25 @@
 
 
 ## Installation
-bash
+* bash
 $ git clone https://github.com/ashokramadasu/ttt-nodejs-test.git && cd ./ttt-nodejs-test/
 $ npm install
 
-### Running Application
+## Running Application
 
-bash
-npm start
+* bash
+$ npm start
 
 ### Testing  Application
-bash
-npm test
+* bash
+$ npm test
 
 ## Implementation Instructions
 I have used following functions 
- request module --- used for getting file data as a string              
- splitByWords   --- used for splitting string into words using Regular Expression
- wordCount      --- used for getting words frequency 
- sortByCount    --- used for sorting words with descending order of their frequency.
+* request module --- used for getting file data as a string              
+* splitByWords   --- used for splitting string into words using Regular Expression
+* wordCount      --- used for getting words frequency 
+* sortByCount    --- used for sorting words with descending order of their frequency.
  
 ## Deployments of GitHub and Heroku
 
