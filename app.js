@@ -94,9 +94,9 @@ function sortByCount (wordCount, N) {
 
   if(N  > len ){
      return ({data: "The result array contains " +len+ " records . Please enter a Number between 1 to " +len})
-  }
+  }else {
   return _.first(finalWordsArray, N);
-
+  }
 }
 
 
