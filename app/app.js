@@ -23,9 +23,9 @@ const fileUrl = 'http://terriblytinytales.com/test.txt'
 
 //Routes used for UI
 
-app.get('/',function(req,res){
-   res.render(__dirname+ './public/index.html')
-});
+// app.get('/',function(req,res){
+//    res.render(__dirname+ './public/index.html')
+// });
 
 app.post('/test',test);
 
