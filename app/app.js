@@ -22,14 +22,13 @@ app.set( 'port', ( process.env.PORT || 3000 ));
 const fileUrl = 'http://terriblytinytales.com/test.txt'
 
 //Routes used for UI
-app.post('/test',test);
-<<<<<<< HEAD:app/app.js
-=======
+
 app.get('/',function(req,res){
    res.render(__dirname+ './public/index.html')
 });
 
->>>>>>> c49db3db71588fe008b77a122cb422c7dcfd4e4f:app.js
+app.post('/test',test);
+
 
 //main logic written here
 let makeRequest = async (function (N) {
@@ -104,16 +103,9 @@ function sortByCount (wordCount, N) {
 
 }
 
-
-<<<<<<< HEAD:app/app.js
-//Express Server running at port 3000 or process.env.PORT;
-app.listen(app.get( 'port' ),function(){
-  console.log("server running at :" + app.get( 'port' ));
-=======
 //Express Server running at port 3000;
 app.listen(app.get( 'port' ) ,function(){
   console.log("server running at 3000");
->>>>>>> c49db3db71588fe008b77a122cb422c7dcfd4e4f:app.js
 });
 
 module.exports= app;
