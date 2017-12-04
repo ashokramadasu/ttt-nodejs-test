@@ -7,9 +7,11 @@ var  express           = require('express')
 ,    bodyParser        = require("body-parser")
 ,    async             = require('asyncawait/async')
 ,    await             = require('asyncawait/await')
-,    request           = require('request-promise'); 
+,    request           = require('request-promise')
+,    _                 = require('underscore')
 
 //Express configuration settings
+app.set( 'port', ( process.env.PORT || 3000 ));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
@@ -21,10 +23,13 @@ const fileUrl = 'http://terriblytinytales.com/test.txt'
 
 //Routes used for UI
 app.post('/test',test);
+<<<<<<< HEAD:app/app.js
+=======
 app.get('/',function(req,res){
    res.render(__dirname+ './public/index.html')
 });
 
+>>>>>>> c49db3db71588fe008b77a122cb422c7dcfd4e4f:app.js
 
 //main logic written here
 let makeRequest = async (function (N) {
@@ -38,13 +43,14 @@ let makeRequest = async (function (N) {
 // request handler function for test end point
 function test (req, res) {
   let N = req.body.Number; 
-
+    console.log(N)
    makeRequest(N)
        .then(function(result){
             res.json(result)
        })
        .catch(function (err) { 
             console.log('Something went wrong: ' + err); 
+            res.status(err.code).send('Something went wrong: ' + err);
        });
 }
 
@@ -67,13 +73,9 @@ function wordCount (wordsArray) {
   let wordCount = {};
 
   wordsArray.forEach(function (key) {
-    if (wordCount.hasOwnProperty(key)) {
-        wordCount[key]++;
-    } else {
-        wordCount[key] = 1;
-    }
-  });
-   console.log(wordCount)
+     wordCount[key] ? wordCount[key]++ : wordCount[key] = 1;
+  })
+  
   return wordCount;
 
 }
@@ -88,18 +90,31 @@ function sortByCount (wordCount, N) {
       count: wordCount[key]
     };
   });
- 
+
+ let len = finalWordsArray.length;
+
   finalWordsArray.sort(function(a, b) {
     return b.count - a.count;
   });
 
-  return finalWordsArray.slice(0,N);
+  if(N  > len ){
+     return ({data: "The result array contains " +len+ " records . Please enter a Number between 1 to " +len})
+  }
+  return _.first(finalWordsArray, N);
 
 }
 
 
+<<<<<<< HEAD:app/app.js
+//Express Server running at port 3000 or process.env.PORT;
+app.listen(app.get( 'port' ),function(){
+  console.log("server running at :" + app.get( 'port' ));
+=======
 //Express Server running at port 3000;
 app.listen(app.get( 'port' ) ,function(){
   console.log("server running at 3000");
+>>>>>>> c49db3db71588fe008b77a122cb422c7dcfd4e4f:app.js
 });
+
+module.exports= app;
 

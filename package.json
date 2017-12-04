@@ -11,14 +11,27 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "underscore": "^1.8.3"
   },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
+  },
+  "engines" : {
+     "node" : "4.2.6"
+  },
+<<<<<<< HEAD
+=======
   "engines": {
     "node" : "4.2.6"
   },
   "devDependencies": {},
+>>>>>>> c49db3db71588fe008b77a122cb422c7dcfd4e4f
   "scripts": {
-   "start": "node app.js"
+    "start": "node app/app.js",
+    "test": "mocha --timeout 10000"
   },
   "repository": {
     "type": "git",
