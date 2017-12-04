@@ -22,13 +22,6 @@
   "engines" : {
      "node" : "4.2.6"
   },
-<<<<<<< HEAD
-=======
-  "engines": {
-    "node" : "4.2.6"
-  },
-  "devDependencies": {},
->>>>>>> c49db3db71588fe008b77a122cb422c7dcfd4e4f
   "scripts": {
     "start": "node app/app.js",
     "test": "mocha --timeout 10000"
