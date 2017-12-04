@@ -13,6 +13,9 @@
     "express": "^4.16.2",
     "request-promise": "^4.2.2"
   },
+  "engines": {
+    "node" : "4.2.6"
+  },
   "devDependencies": {},
   "scripts": {
    "start": "node app.js"
