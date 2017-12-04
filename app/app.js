@@ -16,16 +16,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 app.use(express.static('./public'));
-app.set( 'port', ( process.env.PORT || 3000 ));
+app.set("view options", {layout: false});
+app.engine('html', require('ejs').renderFile);
 
 // input text file Url given in Assignment
 const fileUrl = 'http://terriblytinytales.com/test.txt'
 
 //Routes used for UI
 
-// app.get('/',function(req,res){
-//    res.render(__dirname+ './public/index.html')
-// });
+app.get('/',function(req,res){
+   res.render(__dirname+ './public/index.html')
+});
 
 app.post('/test',test);
 
