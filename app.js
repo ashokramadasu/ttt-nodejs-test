@@ -98,7 +98,7 @@ function sortByCount (wordCount, N) {
 
 
 //Express Server running at port 3000;
-app.listen(process.env.PORT || 3000,function(){
+app.listen(process.env.PORT ,function(){
   console.log("server running at 3000");
 });
 
