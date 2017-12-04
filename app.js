@@ -7,7 +7,8 @@ var  express           = require('express')
 ,    bodyParser        = require("body-parser")
 ,    async             = require('asyncawait/async')
 ,    await             = require('asyncawait/await')
-,    request           = require('request-promise'); 
+,    request           = require('request-promise')
+,    _                 = require('underscore')
 
 //Express configuration settings
 app.use(bodyParser.json());
@@ -21,10 +22,9 @@ const fileUrl = 'http://terriblytinytales.com/test.txt'
 
 //Routes used for UI
 app.post('/test',test);
-app.get('/',function(req,res){
-   res.render(__dirname+ './public/index.html')
-});
-
+// app.get('/',function(req,res){
+//    res.render(__dirname+ './public/index.html')
+// });
 
 //main logic written here
 let makeRequest = async (function (N) {
@@ -38,13 +38,14 @@ let makeRequest = async (function (N) {
 // request handler function for test end point
 function test (req, res) {
   let N = req.body.Number; 
-
+    console.log(N)
    makeRequest(N)
        .then(function(result){
             res.json(result)
        })
        .catch(function (err) { 
             console.log('Something went wrong: ' + err); 
+            res.status(err.code).send('Something went wrong: ' + err);
        });
 }
 
@@ -67,13 +68,9 @@ function wordCount (wordsArray) {
   let wordCount = {};
 
   wordsArray.forEach(function (key) {
-    if (wordCount.hasOwnProperty(key)) {
-        wordCount[key]++;
-    } else {
-        wordCount[key] = 1;
-    }
-  });
-   console.log(wordCount)
+     wordCount[key] ? wordCount[key]++ : wordCount[key] = 1;
+  })
+  
   return wordCount;
 
 }
@@ -88,22 +85,24 @@ function sortByCount (wordCount, N) {
       count: wordCount[key]
     };
   });
- 
+
+ let len = finalWordsArray.length;
+
   finalWordsArray.sort(function(a, b) {
     return b.count - a.count;
   });
-   let len = finalWordsArray.length;
-   if(N  > len ){
+
+  if(N  > len ){
      return ({data: "The result array contains " +len+ " records . Please enter a Number between 1 to " +len})
   }
-  
-  return finalWordsArray.slice(0,N);
+  return _.first(finalWordsArray, N);
 
 }
 
 
 //Express Server running at port 3000;
-app.listen(app.get( 'port' ) ,function(){
+app.listen(app.get( 'port' ),function(){
   console.log("server running at 3000");
 });
 
+module.exports= app;
