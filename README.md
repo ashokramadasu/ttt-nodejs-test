@@ -13,7 +13,7 @@
 
 ## Installation
 ```bash
-$ git clone https://github.com/ashokramadasu/ttt-nodejs-test.git && cd ./ttt_nodejs_test/
+$ git clone https://github.com/ashokramadasu/ttt-nodejs-test.git && cd ./ttt-nodejs-test/
 $ npm install
 
 ### Running
