@@ -92,7 +92,11 @@ function sortByCount (wordCount, N) {
   finalWordsArray.sort(function(a, b) {
     return b.count - a.count;
   });
-
+   let len = finalWordsArray.length;
+   if(N  > len ){
+     return ({data: "The result array contains " +len+ " records . Please enter a Number between 1 to " +len})
+  }
+  
   return finalWordsArray.slice(0,N);
 
 }
